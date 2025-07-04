@@ -1,0 +1,2 @@
+sign_detector
+-DCATKIN_DEVEL_PREFIX=/home/mustar/sign_ws_backup/devel -DCMAKE_INSTALL_PREFIX=/home/mustar/sign_ws_backup/install -G Unix Makefiles

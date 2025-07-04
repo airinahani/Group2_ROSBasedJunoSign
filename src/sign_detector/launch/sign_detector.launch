@@ -1,0 +1,18 @@
+<launch>
+  <!-- Camera node: publishes raw camera images -->
+  <node pkg="sign_detector" type="camera_node.py" name="camera_node" output="screen" />
+
+  <!-- Sign detection node: subscribes to camera images, publishes buffer and sentence -->
+  <node pkg="sign_detector" type="sign_detection_node.py" name="sign_detection_node" output="screen">
+    <param name="model_path" value="$(find sign_detector)/models/best.pt" />
+    <param name="conf_threshold" value="0.8" />
+  </node>
+
+  <!-- Text-to-speech node: subscribes to sentences to speak -->
+  <node pkg="sign_detector" type="tts_node.py" name="tts_node" output="screen" />
+
+  <!-- GUI node: subscribes to camera and detection outputs, shows GUI and handles keyboard -->
+  <node pkg="sign_detector" type="sign_gui_node.py" name="sign_gui_node" output="screen">
+    <param name="model_path" value="$(find sign_detector)/models/best.pt" />
+  </node>
+</launch>

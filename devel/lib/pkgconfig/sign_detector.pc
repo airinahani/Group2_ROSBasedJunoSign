@@ -1,0 +1,8 @@
+prefix=/home/mustar/sign_ws_backup/devel
+
+Name: sign_detector
+Description: Description of sign_detector
+Version: 0.0.0
+Cflags: 
+Libs: -L${prefix}/lib 
+Requires: 
